@@ -1,3 +1,25 @@
+const botonDarkMode = document.getElementById("botonDarkMode");
+const botonLightMode = document.getElementById("botonLightMode");
+console.log(localStorage.getItem("darkMode"));
+let darkMode;
+if (localStorage.getItem("darkMode")) {
+  darkMode = localStorage.getItem("darkMode");
+} else {
+  localStorage.setItem("darkMode", "light");
+}
+if (darkMode == "dark") {
+  document.body.classList.add("darkMode");
+}
+botonDarkMode.addEventListener("click", () => {
+  document.body.classList.add("darkMode");
+  localStorage.setItem("darkMode", "dark");
+});
+botonLightMode.addEventListener("click", () => {
+  document.body.classList.remove("darkMode");
+  localStorage.setItem("darkMode", "light");
+  //localStorage.removeItem('darkMode')
+});
+
 class Producto {
   constructor(nombre, marca, precio, cantidad) {
     this.nombre = nombre;
